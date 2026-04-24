@@ -6,6 +6,28 @@ class Persona {
     # protected apellidoM: String
     # protected fechaNac: Date
 
-    + public registrarUsuario(): Void
+    + public verCalificacion(): Void
+    + public mensajear(): Void
 }
+
+class Docente {
+    - private asignatura: String
+
+    + public adjuntarMaterial(): Void
+    + public registrarCalificacion(): Void
+}
+
+class Estudiante {
+    - private carrera: String
+    - private regular: Boolean
+    - private beneficio: Boolean
+
+    + public vizualizarMaterial(): Void
+    + public dearrollarEvaluacion(): Void
+    + public adjuntarEvaluacion(): Void
+    + public solicitarBeneficio(): Void
+}
+
+Docente --|> Persona
+Estudiante --|> Persona
 @enduml
