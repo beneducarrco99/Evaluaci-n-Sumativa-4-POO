@@ -1,0 +1,11 @@
+@startuml
+class Persona {
+    # protected rut: String
+    # protected nombre: String
+    # protected apellidoP: String
+    # protected apellidoM: String
+    # protected fechaNac: Date
+
+    + public registrarUsuario(): Void
+}
+@enduml
