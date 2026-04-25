@@ -6,6 +6,7 @@ class Persona {
     # protected apellidoM: String
     # protected fechaNac: Date
 
+    + public logearUsuario(): Void
     + public verCalificacion(): Void
     + public mensajear(): Void
 }
@@ -22,6 +23,7 @@ class Estudiante {
     - private regular: Boolean
     - private beneficio: Boolean
 
+    + public inscribirCurso(): Void
     + public vizualizarMaterial(): Void
     + public dearrollarEvaluacion(): Void
     + public adjuntarEvaluacion(): Void
@@ -43,7 +45,6 @@ class Curso {
 
 class Asignatura {
     - private semestre: Integer
-    - private anio: Integer
     - private departamento: String
     - private profesor: String
 
@@ -52,12 +53,31 @@ class Asignatura {
     + public compartirInfo(): Void 
 }
 
+class Arancel {
+    - private anio: Integer
+    - private valor: Long
+    - private cuota: Integer
+    
+    + public calcularValorCuota(): Void
+    + public mostrarCuota(): Void
+}
+
+class Beca {
+    - private nombre: String
+    - private cantFinan: String
+
+    + public calcularRequisitos(): Void
+}
+
 Docente --|> Persona
 Estudiante --|> Persona
 Asignatura --o "1..*" Curso
 Estudiante "1..*" -- Asignatura
-Estudiante *-- "1" Curso
-Docente *-- "1..*" Curso
-Docente "1..*" -- "1..*" Asignatura
+Estudiante *-- "inscribe 1" Curso
+Docente *-- "enseña 1..*" Curso
+Docente "1..*" -- "imparte 1..*" Asignatura
+Estudiante -- "paga 1" Arancel
+Estudiante -- "solicita" Beca
+Curso *-- "1" Arancel
 
 @enduml
