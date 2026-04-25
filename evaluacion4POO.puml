@@ -28,6 +28,36 @@ class Estudiante {
     + public solicitarBeneficio(): Void
 }
 
+class Curso {
+    - private departamento: String
+    - private profJefe: String
+    - private duracion: Integer
+    - private posgrado: Boolean
+    - private periodo: String
+    - private cantidadMatri: Integer
+
+    + public asignarJefeCarr(): Void
+    + public registrarPeriodo(): Void
+    + public sumarMatri(): Void
+}
+
+class Asignatura {
+    - private semestre: Integer
+    - private anio: Integer
+    - private departamento: String
+    - private profesor: String
+
+    + public asignarProfe(): Void
+    + public promedioNotas(): Void
+    + public compartirInfo(): Void 
+}
+
 Docente --|> Persona
 Estudiante --|> Persona
+Asignatura --o "1..*" Curso
+Estudiante "1..*" -- Asignatura
+Estudiante *-- "1" Curso
+Docente *-- "1..*" Curso
+Docente "1..*" -- "1..*" Asignatura
+
 @enduml
