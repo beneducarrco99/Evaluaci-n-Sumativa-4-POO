@@ -43,9 +43,10 @@ class Docente (Persona):
                 return
             
             self.__contador += 1
-            self.__asignatura.almacenaNotas(self.__nota)
+            self.__asignatura.almacenaNotas(self.__nota, self.__notasSemestre)
         
         print("Ya ingresó el número máximo de notas en este semestre.")
+        self.__asignatura.promedioNotas()
 
 
 class Estudiante (Persona):
@@ -96,11 +97,12 @@ class Asignatura:
         self.__promedio = 0
         self.__cantidadNotas = 0
 
-    def almacenaNotas(self, nota):
-        if (self.__cantidadNotas < self.__notasSemestre):
-            self.__nota += nota
-            self.__cantidadNotas = self.__cantidadNotas + 1
-            self.__promedio = self.__nota / self.__cantidadNotas
+    def almacenaNotas(self, nota, notasSemestre):
+        #if (self.__cantidadNotas < self.__notasSemestre):
+        self.__notasSemestre = notasSemestre 
+        self.__nota += nota
+        self.__cantidadNotas = self.__cantidadNotas + 1
+        self.__promedio = self.__nota / self.__cantidadNotas
     
     def promedioNotas(self):
         print(f"{self.__promedio}")
@@ -127,6 +129,6 @@ class Beca:
 curso = Curso("", "", 0, "", "")
 novato = Estudiante("", "", "", "", curso)
 novato.logearUsuario()
-ramo = Asignatura("", "", "", 0, 0)
+ramo = Asignatura(0, "", "", 0, 0)
 profe = Docente("", "", "", "", ramo)
 profe.logearUsuario()
