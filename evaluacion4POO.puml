@@ -24,8 +24,8 @@ class Estudiante {
     - private beneficio: Boolean
 
     + public inscribirCurso(): Void
-    + public vizualizarMaterial(): Void
-    + public dearrollarEvaluacion(): Void
+    + public visualizarMaterial(): Void
+    + public desarrollarEvaluacion(): Void
     + public adjuntarEvaluacion(): Void
     + public solicitarBeneficio(): Void
 }
